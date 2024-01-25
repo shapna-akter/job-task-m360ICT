@@ -112,7 +112,7 @@ export default function Login() {
         </Divider>
         <Col
           style={{
-            margin: "10px 0",
+            margin: "20px 0",
           }}
         >
           <FormInput
@@ -123,9 +123,7 @@ export default function Login() {
             image={<img src={atImg} alt="Email"/>}
           />
         </Col>
-        <Col
-          
-        >
+        <Col>
           <FormInput
             name="name"
             type="name"
@@ -136,7 +134,7 @@ export default function Login() {
         </Col>
         <Col
           style={{
-            margin: "10px 0",
+            margin: "20px 0",
           }}
         >
           <FormInput

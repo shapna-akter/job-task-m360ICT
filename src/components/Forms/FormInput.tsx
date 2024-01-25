@@ -42,21 +42,34 @@ const FormInput = ({
       <Controller
         control={control}
         name={name}
-        render={({ field }) => (
-          <Input
-            style={{
-              margin: "10px 0",
-              border: "1px solid #8A94A6",
-              height: "100%",
-            }}
-            type={type}
-            size={size}
-            placeholder={placeholder}
-            prefix={image}
-            {...field}
-            value={value ? value : field.value}
-          />
-        )}
+        render={({ field }) =>
+          type === "password" ? (
+            <Input.Password
+              style={{
+                border: "1px solid #8A94A6",
+                height: "100%",
+              }}
+              type={type}
+              size={size}
+              placeholder={placeholder}
+              {...field}
+              value={value ? value : field.value}
+            />
+          ) : (
+            <Input
+              style={{
+                border: "1px solid #8A94A6",
+                height: "100%",
+              }}
+              type={type}
+              size={size}
+              placeholder={placeholder}
+              prefix={image}
+              {...field}
+              value={value ? value : field.value}
+            />
+          )
+        }
       />
     </div>
   );
