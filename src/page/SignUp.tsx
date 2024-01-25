@@ -40,6 +40,7 @@ export default function SignUp() {
           style={{
             color: "#323B4B",
             fontSize: "26px",
+            marginBottom: "20px",
           }}
         >
           Getting Started
@@ -48,7 +49,6 @@ export default function SignUp() {
           style={{
             fontSize: "18px",
             fontWeight: "medium",
-            margin: "10px",
           }}
         >
           Create an account to continue!
@@ -59,7 +59,7 @@ export default function SignUp() {
           justify="space-between"
           align="center"
           style={{
-            marginTop: "10px",
+            margin: "30px 0",
           }}
         >
           <Button
@@ -115,7 +115,7 @@ export default function SignUp() {
         </Divider>
         <Col
           style={{
-            margin: "20px 0",
+            margin: "30px 0",
           }}
         >
           <FormInput
@@ -137,7 +137,7 @@ export default function SignUp() {
         </Col>
         <Col
           style={{
-            margin: "20px 0",
+            margin: "30px 0",
           }}
         >
           <FormInput
@@ -162,7 +162,8 @@ export default function SignUp() {
               height: "58px",
               fontSize: "16px",
               borderRadius: "16px",
-              margin: "20px 0",
+              marginTop: "30px",
+              marginBottom: "35px"
             }}
             type="primary"
           >
