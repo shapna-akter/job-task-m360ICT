@@ -6,13 +6,18 @@ import { UserOutlined, AppstoreOutlined, ProfileOutlined  } from "@ant-design/ic
 export const sidebarItems = (role: string) => {
   const adminSidebarItems: MenuProps["items"] = [
     {
+      label: <Link to="/dashboard">pages</Link>,
+      key: `/${role}/dashboard`,
+      
+    },
+    {
       label: <Link to="/dashboard">Dashboard</Link>,
-      key: `/${role}/dashboard/user`,
+      key: `/${role}/dashboard`,
       icon: <AppstoreOutlined />,
     },
     {
-      label: <Link to="/dashboard/user">Users</Link>,
-      key: `/${role}/dashboard/user`,
+      label: <Link to="/dashboard/users">Users</Link>,
+      key: `/${role}/dashboard/users`,
       icon: <UserOutlined />,
     },
     {

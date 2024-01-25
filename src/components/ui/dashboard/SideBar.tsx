@@ -13,7 +13,7 @@ const SideBar = () => {
 
   return (
     <Sider
-      width={280}
+      width={249}
       style={{
         overflow: "auto",
         height: "100vh",
@@ -31,7 +31,7 @@ const SideBar = () => {
           fontSize: "1rem",
           textAlign: "center",
           fontWeight: "bold",
-          marginBottom: ".5rem",
+          marginBottom: "40px",
           padding: "10px 0px",
         }}
       >
