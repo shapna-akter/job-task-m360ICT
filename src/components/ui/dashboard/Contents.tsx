@@ -1,4 +1,5 @@
 import { Layout } from "antd";
+import Header from "./Header";
 
 const { Content } = Layout;
 
@@ -11,9 +12,10 @@ const Contents = ({ children }: { children: React.ReactNode }) => {
         background: "white",
       }}
     >
+      <Header/>
       <div
         style={{
-          padding: "10px",
+          padding: "0px 50px",
         }}
       >
         {children}

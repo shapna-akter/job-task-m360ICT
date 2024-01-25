@@ -5,8 +5,8 @@ import SignUp from "../page/SignUp";
 import NotFound from "../page/NotFound";
 import DashboardLayout from "../layout/DashboardLayout";
 import Home from "../page/Home";
-import User from "../page/User";
 import Sales from "../page/Sales";
+import Users from "../page/Users";
 
 const routes = createBrowserRouter([
     {
@@ -41,7 +41,7 @@ const routes = createBrowserRouter([
       children: [
        {
         path: "/dashboard/users",
-        element: <User/>
+        element: <Users/>
        },
        {
         path: "/dashboard/sales",
