@@ -42,7 +42,7 @@ export default function Login() {
             fontSize: "26px",
           }}
         >
-          Getting Started
+          Sign In
         </h1>
         <p
           style={{
@@ -51,7 +51,7 @@ export default function Login() {
             margin: "10px",
           }}
         >
-          Create an account to continue!
+          Welcome back, you’ve been missed!
         </p>
       </Col>
       <Form submitHandler={onSubmit}>
@@ -152,7 +152,7 @@ export default function Login() {
           <Checkbox
             style={{ color: "#8A94A6", fontSize: "16px", height: "28px" }}
           >
-            I agree to the Terms & Conditions
+            Remember Me
           </Checkbox>
         </Col>
         <Col>
@@ -166,7 +166,7 @@ export default function Login() {
             }}
             type="primary"
           >
-            Sign Up
+            Sign In
           </Button>
         </Col>
         <p
@@ -175,8 +175,8 @@ export default function Login() {
             textAlign: "center",
           }}
         >
-          Already have an account?
-          <Link to="/login"> Sign In</Link>
+          Don’t have an account yet? Sign Up
+          <Link to="/login">Sign Up</Link>
         </p>
       </Form>
     </Row>
