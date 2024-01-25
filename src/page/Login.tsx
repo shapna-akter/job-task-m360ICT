@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import { Col, Divider, Flex, Row, message } from "antd";
+import { Button, Checkbox, Col, Divider, Flex, Row, message } from "antd";
 import googleImg from "../assets/google.png";
 import appleImg from "../assets/apple.png";
 import smileImg from "../assets/smile.png";
@@ -8,6 +8,7 @@ import lockImg from "../assets/lock.png";
 import atImg from "../assets/@.png";
 import FormInput from "../components/Forms/FormInput";
 import Form from "../components/Forms/Form";
+import { Link } from "react-router-dom";
 
 export default function Login() {
   const onSubmit = async (data: any) => {
@@ -26,7 +27,8 @@ export default function Login() {
       justify="center"
       style={{
         width: "540px",
-        margin: "auto",
+        margin: "50px auto",
+        color: "#8A94A6",
       }}
     >
       <Col
@@ -38,14 +40,12 @@ export default function Login() {
           style={{
             color: "#323B4B",
             fontSize: "26px",
-            marginTop: "197px",
           }}
         >
           Getting Started
         </h1>
         <p
           style={{
-            color: "#8A94A6",
             fontSize: "18px",
             fontWeight: "medium",
             margin: "10px",
@@ -55,57 +55,58 @@ export default function Login() {
         </p>
       </Col>
       <Form submitHandler={onSubmit}>
-        <Flex justify="space-between" align="center" gap="">
-          <Flex
-            justify="center"
-            align="center"
-            gap="5px"
+        <Flex
+          justify="space-between"
+          align="center"
+          style={{
+            marginTop: "10px",
+          }}
+        >
+          <Button
+            type="default"
             style={{
-              color: "#8A94A6",
               background: "#F0F5FA",
               width: "255px",
               height: "58px",
               borderRadius: "16px",
+              display: "flex",
+              justifyContent: "center",
+              gap: "10px",
+              alignItems: "center",
             }}
           >
             <img
               src={googleImg}
-              alt=""
-              style={{
-                width: "25px",
-                height: "25px",
-              }}
+              alt="Google Logo"
+              style={{ width: "25px", height: "25px" }}
             />
-            <p>Sign Up with Google</p>
-          </Flex>
-          <Flex
-            justify="center"
-            align="center"
-            gap="5px"
+            <span>Sign Up with Google</span>
+          </Button>
+          <Button
+            type="default"
             style={{
-              color: "#8A94A6",
               background: "#F0F5FA",
               width: "255px",
               height: "58px",
               borderRadius: "16px",
+              display: "flex",
+              justifyContent: "center",
+              gap: "10px",
+              alignItems: "center",
             }}
           >
             <img
               src={appleImg}
-              alt=""
-              style={{
-                width: "25px",
-                height: "25px",
-              }}
+              alt="Apple Logo"
+              style={{ width: "25px", height: "25px" }}
             />
-            <p>Sign Up with Google</p>
-          </Flex>
+            <span>Sign Up with Google</span>
+          </Button>
         </Flex>
-
         <Divider
           style={{
-            color: "#8A94A6",
             width: "540px",
+            color: "#8A94A6",
           }}
         >
           OR
@@ -120,7 +121,7 @@ export default function Login() {
             type="email"
             placeholder=" Your Email"
             size="large"
-            image={<img src={atImg} alt="Email"/>}
+            image={<img src={atImg} alt="Email" />}
           />
         </Col>
         <Col>
@@ -145,6 +146,36 @@ export default function Login() {
             image={<img src={lockImg} alt="Email" />}
           />
         </Col>
+        <Col>
+          <Checkbox
+            style={{ color: "#8A94A6", fontSize: "16px", height: "28px" }}
+          >
+            I agree to the Terms & Conditions
+          </Checkbox>
+        </Col>
+        <Col>
+          <Button
+            style={{
+              width: "100%",
+              height: "58px",
+              fontSize: "16px",
+              borderRadius: "16px",
+              margin: "20px 0",
+            }}
+            type="primary"
+          >
+            Sign Up
+          </Button>
+        </Col>
+        <p
+          style={{
+            fontSize: "16px",
+            textAlign: "center",
+          }}
+        >
+          Already have an account?
+          <Link to="/login"> Sign In</Link>
+        </p>
       </Form>
     </Row>
   );
