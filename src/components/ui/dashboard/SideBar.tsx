@@ -1,25 +1,25 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { useState } from "react";
+
 import { Layout, Menu } from "antd";
 import { sidebarItems } from "../../Constant/sidebarItems";
 import { USER_ROLE } from "../../Constant/role";
+import logo from "../../../assets/logo.png";
+import { Link } from "react-router-dom";
 
 const { Sider } = Layout;
 
 const SideBar = () => {
-  const [collapsed, setCollapsed] = useState(false);
-  const role = USER_ROLE.ADMIN
+  const role = USER_ROLE.ADMIN;
 
   return (
     <Sider
-      collapsible
-      collapsed={collapsed}
-      onCollapse={(value) => setCollapsed(value)}
       width={280}
       style={{
         overflow: "auto",
         height: "100vh",
         position: "sticky",
+        background: "white",
+        borderRight: "2px solid #F3F3F3",
         left: 0,
         top: 0,
         bottom: 0,
@@ -35,10 +35,21 @@ const SideBar = () => {
           padding: "10px 0px",
         }}
       >
-        Stack
+        <Link to="/">
+          <img
+            src={logo}
+            alt=""
+            style={{
+              width: "159px",
+              height: "45px",
+            }}
+          />
+        </Link>
       </div>
       <Menu
-        theme="dark"
+        style={{
+          color: "#8A94A6",
+        }}
         defaultSelectedKeys={["1"]}
         mode="inline"
         items={sidebarItems(role)}

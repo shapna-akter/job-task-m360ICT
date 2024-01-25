@@ -8,6 +8,7 @@ const Contents = ({ children }: { children: React.ReactNode }) => {
       style={{
         minHeight: "100vh",
         color: "black",
+        background: "white",
       }}
     >
       <div

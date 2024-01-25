@@ -66,6 +66,7 @@ export default function Login() {
             type="default"
             style={{
               background: "#F0F5FA",
+              color: "#8A94A6",
               width: "255px",
               height: "58px",
               borderRadius: "16px",
@@ -86,6 +87,7 @@ export default function Login() {
             type="default"
             style={{
               background: "#F0F5FA",
+              color: "#8A94A6",
               width: "255px",
               height: "58px",
               borderRadius: "16px",
@@ -100,7 +102,7 @@ export default function Login() {
               alt="Apple Logo"
               style={{ width: "25px", height: "25px" }}
             />
-            <span>Sign Up with Google</span>
+            <span>Sign Up with Apple ID</span>
           </Button>
         </Flex>
         <Divider
