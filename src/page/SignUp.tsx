@@ -8,19 +8,30 @@ import lockImg from "../assets/lock.png";
 import atImg from "../assets/@.png";
 import FormInput from "../components/Forms/FormInput";
 import Form from "../components/Forms/Form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useUserSignUpMutation } from "../redux/api/authApi";
 
 export default function SignUp() {
+  const [userSignUp] = useUserSignUpMutation();
+  const navigate = useNavigate();
+
   const onSubmit = async (data: any) => {
-    message.loading("Publishing...");
+    message.loading("Please Wait...");
     try {
       console.log(data);
-      message.success("Company published successfully");
+      const res = await userSignUp(data);
+      if (res) {
+        message.success("User registered successfully!");
+        navigate("/");
+      } else {
+        return message.error("Wrong credential!");
+      }
     } catch (err: any) {
       console.error(err.message);
       message.error(err.message);
     }
   };
+
   return (
     <Row
       align="middle"
@@ -119,6 +130,7 @@ export default function SignUp() {
           }}
         >
           <FormInput
+            required
             name="email"
             type="email"
             placeholder=" Your Email"
@@ -132,7 +144,7 @@ export default function SignUp() {
             type="name"
             placeholder="Your Name"
             size="large"
-            image={<img src={smileImg} alt="Email" />}
+            image={<img src={smileImg} alt="Name" />}
           />
         </Col>
         <Col
@@ -141,11 +153,12 @@ export default function SignUp() {
           }}
         >
           <FormInput
+            required
             name="password"
             type="password"
             placeholder="@ Create Password"
             size="large"
-            image={<img src={lockImg} alt="Email" />}
+            image={<img src={lockImg} alt="Password" />}
           />
         </Col>
         <Col>
@@ -163,9 +176,10 @@ export default function SignUp() {
               fontSize: "16px",
               borderRadius: "16px",
               marginTop: "30px",
-              marginBottom: "35px"
+              marginBottom: "35px",
             }}
             type="primary"
+            htmlType="submit"
           >
             Sign Up
           </Button>

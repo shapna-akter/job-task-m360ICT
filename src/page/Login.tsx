@@ -3,24 +3,34 @@
 import { Button, Checkbox, Col, Divider, Flex, Row, message } from "antd";
 import googleImg from "../assets/google.png";
 import appleImg from "../assets/apple.png";
-import smileImg from "../assets/smile.png";
 import lockImg from "../assets/lock.png";
 import atImg from "../assets/@.png";
 import FormInput from "../components/Forms/FormInput";
 import Form from "../components/Forms/Form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useUserLoginMutation } from "../redux/api/authApi";
 
 export default function Login() {
+  const [userLogin] = useUserLoginMutation();
+  const navigate = useNavigate();
+
   const onSubmit = async (data: any) => {
-    message.loading("Publishing...");
+    message.loading("Please Wait...");
     try {
       console.log(data);
-      message.success("Company published successfully");
+      const res = await userLogin(data);
+      if (res) {
+        message.success("User Login successfully!");
+        navigate("/");
+      } else {
+        return message.error("Wrong credential!");
+      }
     } catch (err: any) {
       console.error(err.message);
       message.error(err.message);
     }
   };
+
   return (
     <Row
       align="middle"
@@ -40,7 +50,7 @@ export default function Login() {
           style={{
             color: "#323B4B",
             fontSize: "26px",
-            marginBottom: "20px"
+            marginBottom: "20px",
           }}
         >
           Sign In
@@ -119,20 +129,12 @@ export default function Login() {
           }}
         >
           <FormInput
+            required
             name="email"
             type="email"
             placeholder=" Your Email"
             size="large"
             image={<img src={atImg} alt="Email" />}
-          />
-        </Col>
-        <Col>
-          <FormInput
-            name="name"
-            type="name"
-            placeholder="Your Name"
-            size="large"
-            image={<img src={smileImg} alt="Email" />}
           />
         </Col>
         <Col
@@ -141,11 +143,12 @@ export default function Login() {
           }}
         >
           <FormInput
+            required
             name="password"
             type="password"
             placeholder="@ Create Password"
             size="large"
-            image={<img src={lockImg} alt="Email" />}
+            image={<img src={lockImg} alt="Password" />}
           />
         </Col>
         <Col>
@@ -166,6 +169,7 @@ export default function Login() {
               marginBottom: "35px",
             }}
             type="primary"
+            htmlType="submit"
           >
             Sign In
           </Button>
