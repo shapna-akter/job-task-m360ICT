@@ -5,7 +5,7 @@ import { tagTypesList } from "../common/tag-types";
 export const baseApi = createApi({
   reducerPath: "api",
   baseQuery: fetchBaseQuery({
-    baseUrl: "http://localhost:5000/api/v1/",
+    baseUrl: "https://reqres.in",
   }),
   tagTypes: tagTypesList,
   endpoints: () => ({}),
