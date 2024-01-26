@@ -7,7 +7,7 @@ import { useUsersQuery } from "../redux/api/UsersApi";
 export default function Users() {
   const query: Record<string, any> = {};
   const [page, setPage] = useState<number>(1);
-  const [size, setSize] = useState<number>(10);
+  const [size, setSize] = useState<number>(5);
   const [sortBy, setSortBy] = useState<string>("");
   const [sortOrder, setSortOrder] = useState<string>("");
 
@@ -61,7 +61,6 @@ export default function Users() {
   };
   const onTableChange = (pagination: any, filter: any, sorter: any) => {
     const { order, field } = sorter;
-    // console.log(order, field);
     setSortBy(field as string);
     setSortOrder(order === "ascend" ? "asc" : "desc");
   };
@@ -82,7 +81,6 @@ export default function Users() {
         dataSource={userData}
         columns={columns}
         pageSize={size}
-        // totalPages={meta?.total}
         showSizeChanger={true}
         onPaginationChange={onPaginationChange}
         onTableChange={onTableChange}

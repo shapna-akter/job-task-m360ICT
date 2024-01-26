@@ -2,3 +2,12 @@
     margin: 0;
     padding: 0;
 }
+:where(.css-dev-only-do-not-override-1qhpsh8).ant-table-wrapper .ant-table-pagination-right {
+    justify-content: flex-start;
+}
+
+:where(.css-dev-only-do-not-override-1qhpsh8).ant-pagination .ant-pagination-item-active a {
+    background-color: #1677ff;
+    color: white;
+    border: none;
+}
