@@ -17,8 +17,8 @@ export default function Users() {
   query["sortOrder"] = sortOrder;
 
   const { data, isLoading } = useUsersQuery({ ...query });
-  console.log(data?.data);
   const userData = data?.data;
+  
   const columns = [
     {
       title: "ID",
@@ -55,7 +55,6 @@ export default function Users() {
     },
   ];
   const onPaginationChange = (page: number, pageSize: number) => {
-    console.log("Page:", page, "PageSize:", pageSize);
     setPage(page);
     setSize(pageSize);
   };

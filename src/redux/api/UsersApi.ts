@@ -33,7 +33,7 @@ export const usersApi = baseApi.injectEndpoints({
       invalidatesTags: [tagTypes.users],
     }),
     // get single User by id
-    User: build.query({
+    user: build.query({
       query: (id) => ({
         url: `${USERS_URL}/${id}`,
         method: "GET",
@@ -65,6 +65,7 @@ export const usersApi = baseApi.injectEndpoints({
 
 export const {
   useUsersQuery,
+  useUserQuery,
   useAddUserMutation,
   useUpdateUserMutation,
   useDeleteUserMutation

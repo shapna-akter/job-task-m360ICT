@@ -7,6 +7,7 @@ import DashboardLayout from "../layout/DashboardLayout";
 import Home from "../page/Home";
 import Sales from "../page/Sales";
 import Users from "../page/Users";
+import AddUser from "../page/AddUser";
 
 const routes = createBrowserRouter([
     {
@@ -42,6 +43,10 @@ const routes = createBrowserRouter([
        {
         path: "/dashboard/users",
         element: <Users/>
+       },
+       {
+        path: "/dashboard/add-user",
+        element: <AddUser/>
        },
        {
         path: "/dashboard/sales",
