@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import CommonTable from "../components/ui/CommonTable";
+import { useUsersQuery } from "../redux/api/UsersApi";
 
 export default function Users() {
   const query: Record<string, any> = {};
@@ -15,15 +16,42 @@ export default function Users() {
   query["sortBy"] = sortBy;
   query["sortOrder"] = sortOrder;
 
+  const { data, isLoading } = useUsersQuery({ ...query });
+  console.log(data?.data);
+  const userData = data?.data;
   const columns = [
     {
-      title: "Title",
-      dataIndex: "title",
+      title: "ID",
+      dataIndex: "id",
     },
     {
-      title: "Code",
-      dataIndex: "code",
-      sorter: true,
+      title: "USER",
+      dataIndex: "first_name",
+      render: (text: string, record: any) => (
+        <div style={{ display: "flex", alignItems: "center" }}>
+          <img
+            src={record.avatar} // Assuming the property name is 'avatar_url'
+            alt="Avatar"
+            style={{ width: 30, height: 30, borderRadius: "50%", marginRight: 10 }}
+          />
+          <span>{`${text} ${record.last_name}`}</span>
+        </div>
+      ),
+    },
+    {
+      title: "EMAIL",
+      dataIndex: "email",
+    },
+    {
+      title: "OPTIONS",
+      dataIndex: "id",
+      render: function () {
+        return (
+          <>
+            ...
+          </>
+        );
+      },
     },
   ];
   const onPaginationChange = (page: number, pageSize: number) => {
@@ -38,7 +66,6 @@ export default function Users() {
     setSortOrder(order === "ascend" ? "asc" : "desc");
   };
 
-
   return (
     <div>
       <h1
@@ -51,8 +78,8 @@ export default function Users() {
         Users List
       </h1>
       <CommonTable
-        // loading={isLoading}
-        // dataSource={}
+        loading={isLoading}
+        dataSource={userData}
         columns={columns}
         pageSize={size}
         // totalPages={meta?.total}

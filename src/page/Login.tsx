@@ -17,14 +17,12 @@ export default function Login() {
   const onSubmit = async (data: any) => {
     message.loading("Please Wait...");
     try {
-      console.log(data);
-      const res = await userLogin(data);
-      if (res) {
-        message.success("User Login successfully!");
+      const res = await userLogin({...data}).unwrap();
+      if (res?.token) {
         navigate("/");
-      } else {
-        return message.error("Wrong credential!");
+        message.success("User logged in successfully!");
       }
+      localStorage.setItem('token', res.token);
     } catch (err: any) {
       console.error(err.message);
       message.error(err.message);

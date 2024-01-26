@@ -21,6 +21,7 @@ export default function SignUp() {
       console.log(data);
       const res = await userSignUp(data);
       if (res) {
+        console.log(res);
         message.success("User registered successfully!");
         navigate("/");
       } else {
