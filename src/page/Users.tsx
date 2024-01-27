@@ -60,6 +60,7 @@ export default function Users() {
     setSize(pageSize);
   };
   const onTableChange = (pagination: any, filter: any, sorter: any) => {
+    console.log(pagination, filter);
     const { order, field } = sorter;
     setSortBy(field as string);
     setSortOrder(order === "ascend" ? "asc" : "desc");

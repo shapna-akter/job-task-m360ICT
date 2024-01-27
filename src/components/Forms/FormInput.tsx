@@ -23,7 +23,6 @@ const FormInput = ({
   value,
   placeholder,
   label,
-  required,
   image,
 }: IInput) => {
   const {
