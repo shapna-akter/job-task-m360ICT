@@ -9,6 +9,7 @@ import Sales from "../page/Sales";
 import Users from "../page/Users";
 import AddUser from "../page/AddUser";
 import PrivateRoutes from "./PrivateRoute";
+import UpdateUser from "../page/UpdateUser";
 
 const routes = createBrowserRouter([
   {
@@ -53,6 +54,10 @@ const routes = createBrowserRouter([
       {
         path: "/dashboard/add-user",
         element: <AddUser />,
+      },
+      {
+        path: "/dashboard/update-user/:id",
+        element: <UpdateUser />,
       },
       {
         path: "/dashboard/sales",

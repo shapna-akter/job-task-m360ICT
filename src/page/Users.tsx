@@ -7,7 +7,7 @@ import { useUsersQuery } from "../redux/api/UsersApi";
 export default function Users() {
   const query: Record<string, any> = {};
   const [page, setPage] = useState<number>(1);
-  const [size, setSize] = useState<number>(5);
+  const [size, setSize] = useState<number>(10);
   const [sortBy, setSortBy] = useState<string>("");
   const [sortOrder, setSortOrder] = useState<string>("");
 
@@ -17,6 +17,7 @@ export default function Users() {
   query["sortOrder"] = sortOrder;
 
   const { data, isLoading } = useUsersQuery({ ...query });
+  const total = data?.total;
   const userData = data?.data;
   
   const columns = [
@@ -30,7 +31,7 @@ export default function Users() {
       render: (text: string, record: any) => (
         <div style={{ display: "flex", alignItems: "center" }}>
           <img
-            src={record.avatar} // Assuming the property name is 'avatar_url'
+            src={record.avatar}
             alt="Avatar"
             style={{ width: 30, height: 30, borderRadius: "50%", marginRight: 10 }}
           />
@@ -80,6 +81,7 @@ export default function Users() {
         dataSource={userData}
         columns={columns}
         pageSize={size}
+        totalPages={total}
         showSizeChanger={true}
         onPaginationChange={onPaginationChange}
         onTableChange={onTableChange}

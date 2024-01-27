@@ -1,7 +1,7 @@
 import type { MenuProps } from "antd";
 import { Link } from "react-router-dom";
 import { USER_ROLE } from "./role";
-import { UserOutlined, AppstoreOutlined, ProfileOutlined, UserAddOutlined, UserSwitchOutlined } from "@ant-design/icons";
+import { UserOutlined, AppstoreOutlined, ProfileOutlined, UserAddOutlined } from "@ant-design/icons";
 
 export const sidebarItems = (role: string) => {
   const adminSidebarItems: MenuProps["items"] = [
@@ -23,11 +23,6 @@ export const sidebarItems = (role: string) => {
       label: <Link to="/dashboard/add-user">Add a new user</Link>,
       key: `/${role}/dashboard/add-user`,
       icon: <UserAddOutlined />,
-    },
-    {
-      label: <Link to="/dashboard/update-user">Update a new user</Link>,
-      key: `/${role}/dashboard/update-user`,
-      icon: <UserSwitchOutlined />,
     },
     {
       label: <Link to="/dashboard/sales">Sales</Link>,
